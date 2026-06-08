@@ -1,0 +1,12 @@
+---
+import { Image } from "astro:assets";
+import CollageImage from "../assets/images/collage.png";
+import Divider from "./Divider.astro";
+---
+
+<section class="max-w-5xl mx-auto mt-12 flex flex-col gap-2">
+    <h2 class="text-2xl font-semibold">Tu negocio merece una presencia digital profesional</h2>
+    <p class="text-sm">Una web moderna, confiable y diseñada para ayudarte a conseguir más clientes.</p>
+    <Image src={CollageImage} alt="Collage" />
+    <Divider />
+</section>
