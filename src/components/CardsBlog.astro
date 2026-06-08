@@ -1,0 +1,54 @@
+---
+import ArrowRight from "../assets/icons/arrow-right.svg";
+import { getCollection } from "astro:content";
+import Divider from "./Divider.astro";
+
+const posts = await getCollection("blog");
+const sortedPosts = posts.sort(
+  (a, b) => b.data.startDate.getTime() - a.data.startDate.getTime(),
+);
+---
+
+<section
+  class="max-w-5xl mx-auto mt-8 flex flex-col flex-start text-left gap-2"
+>
+  <h2 class="text-2xl font-semibold">Empresas con las que he colaborado</h2>
+  <p class="text-sm">Soluciones diseñadas para negocios reales.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2 items-stretch">
+    {
+      sortedPosts.map((post, index) => {
+        const isLast = index === sortedPosts.length - 1;
+        const isOdd = sortedPosts.length % 2 !== 0;
+
+        return (
+          <div class:list={[isLast && isOdd && "md:col-span-2 flex"]}>
+            <a
+              href={`/${post.id}`}
+              class="flex flex-col h-full w-full rounded-lg hover:shadow-lg transition"
+            >
+              <img
+                src={post.data.banner}
+                alt="banner"
+                class="h-80 object-cover rounded-t-2xl"
+              />
+
+              <div class="flex flex-col flex-1 p-4 gap-4 bg-[#DFDFDF] rounded-b-2xl">
+                <img src={post.data.logo} alt="logo" width="32" />
+
+                <p class="text-md text-black font-bold text-left flex-1">
+                  {post.data.description}
+                </p>
+
+                <span class="font-bold text-xs text-[#4E4E4E] flex items-center justify-end gap-1">
+                  Leer experiencia <ArrowRight />
+                </span>
+              </div>
+            </a>
+          </div>
+        );
+      })
+    }
+  </div>
+
+  <Divider />
+</section>

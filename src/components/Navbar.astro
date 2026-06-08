@@ -3,28 +3,57 @@ import { Image } from "astro:assets";
 import profile from "../assets/images/profile.png";
 ---
 
-<nav>
+<nav id="navbar" class="sticky top-4 z-50">
+  <div
+    id="navbar-content"
+    class="mx-auto px-4 py-3 transition-all duration-300 rounded-lg"
+  >
     <ul>
-        <li class="w-fit">
-            <a href="/" class="flex items-center gap-4">
-                <Image
-                    class="rounded-full bg-white"
-                    src={profile}
-                    alt="Miguel Castañeda Logo"
-                    width={60}
-                    height={66}
-                />
-                <div class="flex flex-col">
-                    <span class="font-bold text-lg">
-                        <span class="text-black">MIGUEL</span>
-                        <span class="text-[#4E4E4E]"> CASTAÑEDA</span>
-                    </span>
+      <li class="w-fit">
+        <a href="/" class="flex items-center gap-4">
+          <Image
+            class="rounded-full bg-white"
+            src={profile}
+            alt="Miguel Castañeda Logo"
+            width={60}
+            height={66}
+          />
 
-                    <span class="font-semibold text-black text-sm">
-                        SOFTWARE ENGINEER
-                    </span>
-                </div>
-            </a>
-        </li>
+          <div class="flex flex-col">
+            <span class="font-bold text-lg">
+              <span class="text-black">MIGUEL</span>
+              <span class="text-[#4E4E4E]"> CASTAÑEDA</span>
+            </span>
+
+            <span class="font-semibold text-black text-sm">
+              SOFTWARE ENGINEER
+            </span>
+          </div>
+        </a>
+      </li>
     </ul>
+  </div>
 </nav>
+
+<script>
+  const navbarContent = document.getElementById("navbar-content");
+
+  const handleScroll = () => {
+    if (window.scrollY > 20) {
+      navbarContent?.classList.add(
+        "bg-white/90",
+        "backdrop-blur-md",
+        "shadow-[0_6px_12px_rgba(0,0,0,0.12)]"
+      );
+    } else {
+      navbarContent?.classList.remove(
+        "bg-white/90",
+        "backdrop-blur-md",
+        "shadow-[0_6px_12px_rgba(0,0,0,0.12)]"
+      );
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+</script>
