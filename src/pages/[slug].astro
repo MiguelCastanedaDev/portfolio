@@ -1,0 +1,84 @@
+---
+import BlogLayout from "../layouts/BlogLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import { getCollection, render } from "astro:content";
+import Divider from "../components/Divider.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+
+    return posts.map((post) => ({
+        params: { slug: post.id },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+
+// Renderiza el markdown
+const { Content } = await render(post);
+---
+
+<BlogLayout>
+    <Navbar slot="header" />
+
+    <section class="max-w-5xl mx-auto mt-12 flex flex-col gap-2">
+        <h1 class="text-3xl font-bold mb-4">
+            <img
+                src={post.data.logo}
+                alt="logo"
+                width="32"
+                class="inline-block mr-2"
+            />
+            {post.data.title}
+        </h1>
+
+        <p class="text-gray-600 font-bold">
+            {post.data.description}
+        </p>
+
+        <span class="text-sm text-gray-500 font-bold">
+            {
+                post.data.startDate.toLocaleDateString("es-MX", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                })
+            }
+
+            -
+
+            {
+                post.data.dueDate ? post.data.dueDate.toLocaleDateString("es-MX", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                }) : 'Actualidad'
+            }
+        </span>
+
+        <Divider />
+
+        <article
+            class="mt-5 prose prose-neutral max-w-none
+         prose-headings:text-gray-900
+         prose-headings:font-bold
+         prose-p:text-black
+         prose-p:leading-8
+         prose-a:text-blue-600
+         prose-a:no-underline
+         hover:prose-a:underline
+         prose-code:text-pink-500
+         prose-code:before:content-none
+         prose-code:after:content-none
+         prose-pre:bg-zinc-900
+         prose-img:rounded-lg
+         prose-img:p-6
+         prose-img:border-gray-300
+         prose-img:border
+         "
+        >
+            <Content />
+        </article>
+    </section>
+</BlogLayout>
