@@ -1,7 +1,4 @@
----
-import { Image } from "astro:assets";
-import profile from "/images/profile.png";
----
+
 
 <nav id="navbar" class="sticky top-4 z-50">
   <div
@@ -11,9 +8,9 @@ import profile from "/images/profile.png";
     <ul>
       <li class="w-fit">
         <a href="/" class="flex items-center gap-4">
-          <Image
+          <img
             class="rounded-full bg-white"
-            src={profile}
+            src="/images/profile.png"
             alt="Miguel Castañeda Logo"
             width={60}
             height={66}
