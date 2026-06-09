@@ -1,0 +1,6 @@
+{
+    "image": "/images/billpoint.png",
+    "title": "Billpoint v1.0.4",
+    "description": "Billpoint es una aplicación de facturación mexicana CFDI 4.0 y gestión de clientes diseñada para pequeñas/medianas empresas. Permite crear y enviar facturas personalizadas, gestionar clientes y productos, y realizar un seguimiento de los pagos de manera eficiente.",
+    "link": "https://client-billing-pos.mikeonlinemx.workers.dev/"
+}

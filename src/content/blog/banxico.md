@@ -22,6 +22,4 @@ Adicionalmente, promoví la adopción de Figma como herramienta para la definici
 
 Trabajé utilizando herramientas de control de versiones basadas en Git mediante TortoiseGit, participando en flujos colaborativos de desarrollo y siguiendo procesos alineados con las prácticas de ingeniería de software del banco. Durante esta experiencia adquirí una comprensión funcional del ecosistema financiero mexicano, incluyendo conceptos relacionados con SPEI, intercambio de información entre sistemas y el funcionamiento general de servicios y APIs utilizados dentro del sector bancario.
 
-## Implementaciones Reales
-
 ![Descripción de la imagen](/resources-blog/banxico-image-collage.png)

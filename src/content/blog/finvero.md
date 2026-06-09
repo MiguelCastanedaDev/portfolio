@@ -16,6 +16,4 @@ Trabajé en la construcción de componentes reutilizables y en la integración d
 
 Colaboré estrechamente con diseñadores UX/UI, desarrolladores y equipos de infraestructura para asegurar una correcta ejecución de los proyectos, participando en revisiones de diseño, validación de requerimientos y seguimiento de entregables. Asimismo, utilicé herramientas como Git y GitHub para el control de versiones y trabajo colaborativo, Azure DevOps para la gestión de tareas y seguimiento del desarrollo, y Postman para la validación y pruebas de servicios e integraciones.
 
-## Implementaciones Reales
-
 ![Descripción de la imagen](/resources-blog/finvero-image-collage.png)
