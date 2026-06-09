@@ -1,2 +1,27 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+/* Simple entrance animations */
+@keyframes fadeUp {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.fade-up {
+	animation: fadeUp 520ms cubic-bezier(.2,.9,.2,1) both;
+}
+
+.fade-up-slow {
+	animation: fadeUp 760ms cubic-bezier(.2,.9,.2,1) both;
+}
+
+/* Utility to make animation only run once when element appears */
+.will-change-transform {
+	will-change: transform, opacity;
+}
